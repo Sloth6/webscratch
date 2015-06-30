@@ -1,0 +1,46 @@
+html
+  head
+    title= title
+    script(src='/src/libraries/jquery.min.js')
+    script(src='/src/libraries/jqueryui.min.js')
+    script(src='/src/libraries/nestedSortable.js')
+    //- script(src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js")
+    script(src="/src/app.js")
+  
+    //- link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+    link(rel='stylesheet', href='/style/style.css')
+
+    //- link(rel='stylesheet', href='/style/preview.css')
+
+    //- <!-- Latest compiled and minified CSS -->
+    //- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    //- //- <!-- Optional theme -->
+    //- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    //- //- <!-- Latest compiled and minified JavaScript -->
+    //- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  block content
+    #preview.column
+      iframe
+        link(rel='stylesheet', href="style/preview.css")
+    #blocks.column
+      ol
+        li.draggable
+          .block.group
+            p group
+        li.draggable
+          .block.header
+            p header
+            form: input(type='text',placeholder="I'm a header!")
+        li.draggable
+          .block.paragraph
+            p paragraph
+            textarea(placeholder="I'm a paragraph!", rows=3)
+
+    #sandbox.column
+      ol.sortable.root
+        li.ui-state-disabled
+          .block.group
+            p document
