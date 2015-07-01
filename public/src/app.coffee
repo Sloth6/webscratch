@@ -22,6 +22,9 @@ $ ->
     helper: "clone"
     revert: "invalid"
   }
+
+  $( "#tabs" ).tabs()
+
   head = $("iframe").contents().find("head")
   head.append $("<link/>", { rel: "stylesheet", href: '/style/preview.css', type: "text/css" })
 

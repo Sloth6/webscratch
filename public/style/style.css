@@ -38,17 +38,9 @@ iframe {
   display: inline-block
 }
 
-h {
-
+.nav-tabs > li {
+  width: 50%;
 }
-
-
-
-
-
-
-
-
 
 
 
