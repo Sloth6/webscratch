@@ -1,6 +1,9 @@
 html
   head
     title= title
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width, initial-scale=1")
+
     script(src='/src/libraries/jquery.min.js')
     script(src='/src/libraries/jqueryui.min.js')
     script(src='/src/libraries/nestedSortable.js')
@@ -11,9 +14,8 @@ html
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
 
     script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
-
-  .container-fluid
-    #content
+  body
+    .container-fluid
       #preview.column
         iframe
           link(rel='stylesheet', href="style/preview.css")
@@ -25,10 +27,21 @@ html
 
         #blocksContainer.tab-content
           #tabs-1.tab-pane.active
-            ol
+            //- ul.nav.nav-pills.nav-stacked
+            //- li.active: a(href="#") Groups
+            //- li: a(href="#") Elements
+
+            ol.blockStore
               li.draggable
                 .block.group
                   p group
+                  form(role='form')
+                    label.radio-inline
+                      input(type="radio", value="|", name="divFormat")
+                      | ||
+                    label.radio-inline
+                      input(type="radio", value="-", name="divFormat",checked)
+                      | ==
               li.draggable
                 .block.header
                   p header
@@ -36,7 +49,12 @@ html
               li.draggable
                 .block.paragraph
                   p paragraph
-                  textarea(placeholder="I'm a paragraph!", rows=3)
+                  textarea.form-control(placeholder="I'm a paragraph!", rows=3)
+              li.draggable
+                .block.button
+                  p button
+                  button.btn.btn-primary(type='button') Click Me
+
           #tabs-2.tab-pane
             ul.nav.nav-pills.nav-stacked
               li.active: a(href="#") Selectors
@@ -48,5 +66,5 @@ html
       #sandbox.column
         ol.sortable.root
           li.ui-state-disabled
-            .block.group
+            .block.contain
               p document
