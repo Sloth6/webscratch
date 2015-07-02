@@ -35,31 +35,96 @@ iframe {
   height: 100%;
 }
 
+
+
 .block {
+  /*min-height: 40px;*/
   display: inline-block
 }
-
-.nav-tabs > li {
-  width: 50%;
-}
-
-
-.group {
-  height: 30px;
-}
-#sandbox .group {
-  width: 250px;
-}
-.blockStore .group form {
-  visibility: hidden;
-}
-
-
 
 .block p {
   float: left;
   padding: 5px;
 }
+
+.block .trash {
+  float: right;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.blockContainer {
+  /*position: relative;*/
+  padding-bottom: 15px;
+
+  /*min-height: 70px;*/
+}
+
+.group {
+  height: 20px;
+  /*min-height: 30px;*/
+}
+
+#sandbox .group {
+  width: 150px;
+}
+
+#sandbox .group p {
+  visibility: hidden;
+}
+
+
+#sandbox .blockContainer {
+  position: relative;
+  /*border-style: solid;*/
+  /*border-width: 1px;*/
+  /*border-right: 0;*/
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: move;
+  margin: 2px;
+
+}
+
+.blockStore .group {
+  background-color: #337ab7;
+  height: 30px;
+}
+
+.blockSide {
+  /*background-color: rgb(255, 101, 101);*/
+  background-color: #337ab7;
+  position: absolute;
+}
+
+#sandbox .leftSide {
+  width: 15px;
+  height: 100%;
+}
+
+#sandbox .topSide {
+  height: 15px;
+  width: 100%;
+}
+
+#sandbox .bottomSide {
+  bottom:0;
+  height: 15px;
+  width: 100%;
+}
+
+.blockStore .group form {
+  visibility: hidden;
+}
+
+#sandbox .group form {
+  float: left;
+  position: absolute;
+  padding: 2px;
+}
+
 
 .blockStore {
   list-style-type: none;
@@ -74,25 +139,13 @@ iframe {
   visibility: hidden;
 }
 
-.block {
-  width: 150px;
-  border: 1px solid #d4d4d4;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  cursor: move;
-  border-color: #D4D4D4 #D4D4D4 #BCBCBC;
-  margin: 0;
-  padding: 3px;
+.block.paragraph {
+  background-color: #5cb85c;
 }
 
-.block .trash {
-  float: right;
-  cursor: pointer;
-  padding: 3px;
+.block.header {
+  background-color: #d9534f;
 }
-
-
 
 input[type=text] {
   width: 100%
@@ -142,12 +195,16 @@ small code {
 
 ol {
   max-width: 450px;
-  padding-left: 25px;
+  padding-left: 15px;
 }
 
 ol.sortable,ol.sortable ol {
   list-style-type: none;
 }
+.nav-tabs > li {
+  width: 50%;
+}
+
 
 
 

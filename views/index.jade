@@ -32,7 +32,11 @@ html
             //- li: a(href="#") Elements
 
             ol.blockStore
-              li.draggable
+              li.blockContainer.draggable
+                .blockSide.leftSide
+                .blockSide.topSide                  
+                .blockSide.bottomSide
+                .blockSide.block.group
                 .block.group
                   p group
                   span.trash(class="glyphicon glyphicon-trash")
@@ -44,25 +48,25 @@ html
                       input(type="radio", value="-", name="divFormat",checked)
                       | ==
 
-              li.draggable
+              li.blockContainer.draggable
                 .block.header
                   p header
                   span.trash(class="glyphicon glyphicon-trash")
                   form: input(type='text',placeholder="I'm a header!")
 
-              li.draggable
+              li.blockContainer.draggable
                 .block.paragraph
                   p paragraph
                   span.trash(class="glyphicon glyphicon-trash")
                   textarea.form-control(placeholder="I'm a paragraph!", rows=3)
 
-              li.draggable
+              li.blockContainer.draggable
                 .block.button
                   p button
                   span.trash(class="glyphicon glyphicon-trash")
                   button.btn.btn-primary(type='button') Click Me
 
-              li.draggable
+              li.blockContainer.draggable
                 .block.image
                   p image
                   span.trash(class="glyphicon glyphicon-trash")
