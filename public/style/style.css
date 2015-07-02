@@ -22,6 +22,7 @@ html, body {
   float: left;
   border-right: 1px solid; 
   width: 15%;
+  overflow: hidden;
 }
 
 #sandbox {
@@ -41,22 +42,40 @@ iframe {
 .nav-tabs > li {
   width: 50%;
 }
-/*
+
+
 .group {
-  width: 150px;
-}*/
+  height: 30px;
+}
+#sandbox .group {
+  width: 250px;
+}
+.blockStore .group form {
+  visibility: hidden;
+}
+
+
 
 .block p {
   float: left;
   padding: 5px;
 }
+
 .blockStore {
   list-style-type: none;
   padding-left: 5px;
 }
 
+.blockStore li {
+  padding-top: 10px;
+}
+
+.blockStore .trash {
+  visibility: hidden;
+}
+
 .block {
-  width: 200px;
+  width: 150px;
   border: 1px solid #d4d4d4;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -65,6 +84,18 @@ iframe {
   border-color: #D4D4D4 #D4D4D4 #BCBCBC;
   margin: 0;
   padding: 3px;
+}
+
+.block .trash {
+  float: right;
+  cursor: pointer;
+  padding: 3px;
+}
+
+
+
+input[type=text] {
+  width: 100%
 }
 
 

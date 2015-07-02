@@ -34,6 +34,9 @@ $ ->
   head.append $("<link/>", { rel: "stylesheet", href: 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', type: "text/css" })
   head.append $('<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>')
 
+  
+    # $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded')
+    # $(this).toggleClass('ui-icon-plusthick').toggleClass('ui-icon-minusthick')
   # $("iframe").contents().find("body").append $('<div class="row"> 
   #               <div class="col-xs-2">foobar</div> 
   #               <div class="col-xs-2">foobar</div> 
@@ -108,6 +111,13 @@ build_dom_r = (sandbox_elem) ->
   else if block.hasClass 'contain'
     dom = $('<div class=container-fluid></div>')
 
+  else if block.hasClass 'image'
+    input = block.find 'input:text'
+    dom = $('<img>').attr 'src', input.val()
+    input.bind 'input propertychange', () -> dom.attr 'src', input.val()
+
+  else
+    throw "not implemented yet"
   # use closure to blind sandbox ui to preview dom
   block.click () -> dom.effect("highlight", {}, 1000)
 
@@ -122,9 +132,14 @@ build_tree_r = (li) ->
 build_dom = () ->
   body = $('iframe').contents().find('body')
   body.children().remove()
-  # body.apppend $('ol.root > li')
-  #.first().children('ol').children().each () ->
   body.append build_dom_r $('ol.root > li')
+
+  $('.trash').on 'click', () ->
+    container = $(@).parent().parent()
+    children = container.children('ol').children()
+    children.insertBefore container
+    container.remove()
+    build_dom()
   null
   
   # $( ".store" ).draggable {

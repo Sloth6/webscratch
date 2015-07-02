@@ -35,6 +35,7 @@ html
               li.draggable
                 .block.group
                   p group
+                  span.trash(class="glyphicon glyphicon-trash")
                   form(role='form')
                     label.radio-inline
                       input(type="radio", value="|", name="divFormat")
@@ -42,18 +43,30 @@ html
                     label.radio-inline
                       input(type="radio", value="-", name="divFormat",checked)
                       | ==
+
               li.draggable
                 .block.header
                   p header
+                  span.trash(class="glyphicon glyphicon-trash")
                   form: input(type='text',placeholder="I'm a header!")
+
               li.draggable
                 .block.paragraph
                   p paragraph
+                  span.trash(class="glyphicon glyphicon-trash")
                   textarea.form-control(placeholder="I'm a paragraph!", rows=3)
+
               li.draggable
                 .block.button
                   p button
+                  span.trash(class="glyphicon glyphicon-trash")
                   button.btn.btn-primary(type='button') Click Me
+
+              li.draggable
+                .block.image
+                  p image
+                  span.trash(class="glyphicon glyphicon-trash")
+                  form: input(type='text',placeholder="paste a url here")
 
           #tabs-2.tab-pane
             ul.nav.nav-pills.nav-stacked
