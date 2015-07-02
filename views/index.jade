@@ -32,12 +32,11 @@ html
             //- li: a(href="#") Elements
 
             ol.blockStore
-              li.blockContainer.draggable
+              li.block.draggable.group
                 .blockSide.leftSide
                 .blockSide.topSide                  
                 .blockSide.bottomSide
-                .blockSide.block.group
-                .block.group
+                .blockHeader
                   p group
                   span.trash(class="glyphicon glyphicon-trash")
                   form(role='form')
@@ -48,27 +47,39 @@ html
                       input(type="radio", value="-", name="divFormat",checked)
                       | ==
 
-              li.blockContainer.draggable
-                .block.header
+              li.block.draggable.header
+                .blockHeader
                   p header
                   span.trash(class="glyphicon glyphicon-trash")
                   form: input(type='text',placeholder="I'm a header!")
 
-              li.blockContainer.draggable
-                .block.paragraph
+              li.block.draggable.paragraph
+                .blockHeader
                   p paragraph
                   span.trash(class="glyphicon glyphicon-trash")
-                  textarea.form-control(placeholder="I'm a paragraph!", rows=3)
+                  textarea.form-control(placeholder="I'm a paragraph!", rows=2)
 
-              li.blockContainer.draggable
-                .block.button
+              li.block.draggable.button
+                .blockHeader
                   p button
                   span.trash(class="glyphicon glyphicon-trash")
                   button.btn.btn-primary(type='button') Click Me
 
-              li.blockContainer.draggable
-                .block.image
+              li.block.draggable.image
+                .blockHeader
                   p image
+                  span.trash(class="glyphicon glyphicon-trash")
+                  form: input(type='text',placeholder="paste a url here")
+
+              li.block.draggable.link
+                .blockHeader
+                  p link
+                  span.trash(class="glyphicon glyphicon-trash")
+                  form: input(type='text',placeholder="paste a url here")
+
+              li.block.draggable.embed
+                .blockHeader
+                  p embed
                   span.trash(class="glyphicon glyphicon-trash")
                   form: input(type='text',placeholder="paste a url here")
 
@@ -82,6 +93,6 @@ html
    
       #sandbox.column
         ol.sortable.root
-          li.ui-state-disabled
+          li.ui-state-disabled.contain
             .block.contain
               p document

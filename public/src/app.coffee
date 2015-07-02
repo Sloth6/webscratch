@@ -58,7 +58,6 @@ formatDivChildren = (div, children, areColumns) ->
 build_dom_r = (sandbox_elem) ->
   
   # every element has a block and children
-  block = sandbox_elem.children '.block'
   sandbox_children = sandbox_elem.children('ol').children()
 
   # recursively get all the children of this element in the dom
@@ -67,19 +66,16 @@ build_dom_r = (sandbox_elem) ->
   # the dom element we will return for this sandbox_elem
   dom = null
 
-  if block.hasClass 'group'
+  if sandbox_elem.hasClass 'group'
     dom = $('<div>')
       .addClass 'well'
       .addClass 'group'
       .addClass 'row'
     
     if dom_children.length
-      # console.log block.find('input[name="divFormat"]:checked'), block.find('input[name="divFormat"]').val()
-      isColumns = block.find('input[name="divFormat"]:checked').val() is '|'
-      # console.log dom_children.length, isColumns, $(dom_children)
+      isColumns = sandbox_elem.find('input[name="divFormat"]:checked').val() is '|'
       formatDivChildren dom, $(dom_children).map(() -> @toArray()), isColumns
-      # formatDivChildren
-      block.find('input[name="divFormat"]').click () ->
+      sandbox_elem.find('input[name="divFormat"]').click () ->
         formatDivChildren dom, dom.children(), @value is '|'
     else
       dom.css {
@@ -88,14 +84,14 @@ build_dom_r = (sandbox_elem) ->
         'border-style': 'solid'
       }
 
-  else if block.hasClass 'header'
-    input = block.find 'input:text'
+  else if sandbox_elem.hasClass 'header'
+    input = sandbox_elem.find 'input:text'
     header = $('<h1>').text input.val()
     input.bind 'input propertychange', () -> header.text input.val()
     dom = header
 
-  else if block.hasClass 'paragraph'
-    textarea = block.find 'textarea'
+  else if sandbox_elem.hasClass 'paragraph'
+    textarea = sandbox_elem.find 'textarea'
     p = $('<p>').
       html(textarea.val().replace(/\n/g, '<br>')).
       addClass 'well'
@@ -104,22 +100,23 @@ build_dom_r = (sandbox_elem) ->
       p.html textarea.val().replace(/\n/g, '<br>')
     dom = p
   
-  else if block.hasClass 'button'
+  else if sandbox_elem.hasClass 'button'
     button = $('<button type="button" class="btn btn-primary">Click Me</button>')
     dom = button
   
-  else if block.hasClass 'contain'
+  else if sandbox_elem.hasClass 'contain'
     dom = $('<div class=container-fluid></div>')
 
-  else if block.hasClass 'image'
-    input = block.find 'input:text'
+  else if sandbox_elem.hasClass 'image'
+    input = sandbox_elem.find 'input:text'
     dom = $('<img>').attr 'src', input.val()
     input.bind 'input propertychange', () -> dom.attr 'src', input.val()
 
   else
+    console.log sandbox_elem
     throw "not implemented yet"
   # use closure to blind sandbox ui to preview dom
-  block.click () -> dom.effect("highlight", {}, 1000)
+  sandbox_elem.click () -> dom.effect("highlight", {}, 1000)
 
   dom.append dom_children
 

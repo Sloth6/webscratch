@@ -6,6 +6,10 @@ html, body {
   padding: 0px;
 }
 
+
+/*
+  Layout
+*/
 .column {
   height: 100%;
   box-sizing: border-box;
@@ -37,61 +41,67 @@ iframe {
 
 
 
+
+
+
+/*
+  Blocks
+*/
 .block {
-  /*min-height: 40px;*/
-  display: inline-block
-}
-
-.block p {
-  float: left;
-  padding: 5px;
-}
-
-.block .trash {
-  float: right;
-  cursor: pointer;
-  padding: 3px;
-}
-
-.blockContainer {
-  /*position: relative;*/
-  padding-bottom: 15px;
-
-  /*min-height: 70px;*/
-}
-
-.group {
-  height: 20px;
-  /*min-height: 30px;*/
-}
-
-#sandbox .group {
-  width: 150px;
-}
-
-#sandbox .group p {
-  visibility: hidden;
-}
-
-
-#sandbox .blockContainer {
   position: relative;
-  /*border-style: solid;*/
-  /*border-width: 1px;*/
-  /*border-right: 0;*/
-
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   cursor: move;
   margin: 2px;
-
 }
 
-.blockStore .group {
+/*
+  Block Headers
+*/
+.blockHeader {
+  width: 100%;
+  display: inline-block
+}
+
+/*#sandbox .block.group > .blockHeader {
+  width: 200px;
+}*/
+
+.blockHeader p {
+  float: left;
+  padding: 5px;
+}
+
+.blockHeader .trash {
+  float: right;
+  cursor: pointer;
+  padding: 3px;
+}
+
+/*#sandbox .block.group > .blockHeader > p {
+  display: none;
+}
+*/
+.block.group > .blockHeader {
+  height: 20px;
+}
+
+
+
+
+.block.group {
+  padding-bottom: 15px;
+}
+
+
+
+
+
+/*.blockStore .group {
   background-color: #337ab7;
   height: 30px;
-}
+}*/
 
 .blockSide {
   /*background-color: rgb(255, 101, 101);*/
@@ -99,30 +109,20 @@ iframe {
   position: absolute;
 }
 
-#sandbox .leftSide {
+.leftSide {
   width: 15px;
   height: 100%;
 }
 
-#sandbox .topSide {
-  height: 15px;
+.topSide {
+  height: 20px;
   width: 100%;
 }
 
-#sandbox .bottomSide {
+.bottomSide {
   bottom:0;
   height: 15px;
   width: 100%;
-}
-
-.blockStore .group form {
-  visibility: hidden;
-}
-
-#sandbox .group form {
-  float: left;
-  position: absolute;
-  padding: 2px;
 }
 
 
@@ -139,6 +139,10 @@ iframe {
   visibility: hidden;
 }
 
+/*
+  block type specific styling
+*/
+
 .block.paragraph {
   background-color: #5cb85c;
 }
@@ -152,6 +156,9 @@ input[type=text] {
 }
 
 
+/*
+  styles for nested sortable
+*/
 
 a,a:visited {
   color: #4183C4;
