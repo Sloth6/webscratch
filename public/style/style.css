@@ -22,11 +22,17 @@ html, body {
   border-right: 1px solid;
 }
 
+.pageLink {
+  position: relative;
+  bottom: 30px;
+  float: right;
+}
+
 #blocks {
   float: left;
   border-right: 1px solid; 
   width: 15%;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 #sandbox {
@@ -151,8 +157,17 @@ iframe {
   background-color: #d9534f;
 }
 
+.block.link {
+  background-color: #777;
+}
+.block.image {
+  background-color: #5bc0de;
+}
+
 input[type=text] {
-  width: 100%
+  width: 96%;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 

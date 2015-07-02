@@ -19,6 +19,9 @@ html
       #preview.column
         iframe
           link(rel='stylesheet', href="style/preview.css")
+
+        button.pageLink(type="button",class="btn btn-default")
+          span.trash(class="glyphicon glyphicon-link")
       
       #blocks.column
         ul.nav.nav-tabs(id='tabs', data-tabs="tabs")
@@ -59,12 +62,6 @@ html
                   span.trash(class="glyphicon glyphicon-trash")
                   textarea.form-control(placeholder="I'm a paragraph!", rows=2)
 
-              li.block.draggable.button
-                .blockHeader
-                  p button
-                  span.trash(class="glyphicon glyphicon-trash")
-                  button.btn.btn-primary(type='button') Click Me
-
               li.block.draggable.image
                 .blockHeader
                   p image
@@ -75,7 +72,14 @@ html
                 .blockHeader
                   p link
                   span.trash(class="glyphicon glyphicon-trash")
+                  form: input(type='text',placeholder="Name of link")
                   form: input(type='text',placeholder="paste a url here")
+
+              li.block.draggable.button
+                .blockHeader
+                  p button
+                  span.trash(class="glyphicon glyphicon-trash")
+                  button.btn.btn-primary(type='button') Click Me
 
               li.block.draggable.embed
                 .blockHeader

@@ -34,6 +34,10 @@ $ ->
   head.append $("<link/>", { rel: "stylesheet", href: 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', type: "text/css" })
   head.append $('<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>')
 
+  $('.pageLink').click () ->
+    w = window.open()
+    $(w.document.head).html $("iframe").contents().find("head").html()
+    $(w.document.body).html $("iframe").contents().find("body").html()
   
     # $(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded')
     # $(this).toggleClass('ui-icon-plusthick').toggleClass('ui-icon-minusthick')
@@ -111,6 +115,16 @@ build_dom_r = (sandbox_elem) ->
     input = sandbox_elem.find 'input:text'
     dom = $('<img>').attr 'src', input.val()
     input.bind 'input propertychange', () -> dom.attr 'src', input.val()
+
+  else if sandbox_elem.hasClass 'link'
+    input = sandbox_elem.find 'input:text'
+    dom = $('<a>').attr({href: input.val(), target: "_blank"}).text 'link!'
+    input.bind 'input propertychange', () -> dom.attr 'src', input.val()
+
+  # else if sandbox_elem.hasClass 'image'
+  #   input = sandbox_elem.find 'input:text'
+  #   dom = $('<img>').attr 'src', input.val()
+  #   input.bind 'input propertychange', () -> dom.attr 'src', input.val()
 
   else
     console.log sandbox_elem
