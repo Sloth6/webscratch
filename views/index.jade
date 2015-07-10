@@ -24,68 +24,27 @@ html
           span.trash(class="glyphicon glyphicon-link")
       
       #blocks.column
+
         ul.nav.nav-tabs(id='tabs', data-tabs="tabs")
           li.active: a(href="#tabs-1", data-toggle="tab") Build
           li: a(href="#tabs-2", data-toggle="tab") Control
 
         #blocksContainer.tab-content
           #tabs-1.tab-pane.active
-            //- ul.nav.nav-pills.nav-stacked
-            //- li.active: a(href="#") Groups
-            //- li: a(href="#") Elements
+            
+
+            .tabbable
+              ul.nav.nav-tabs.nav-stacked.active
+              ul.nav.nav-tabs.nav-stacked
+            
+
+            .blockMenuContainer
+              ul.nav.nav-pills.nav-stacked
+                li.active: a(href="#") Web Blocks
+                li: a(href="#") Descriptions
 
             ol.blockStore
-              li.block.draggable.group
-                .blockSide.leftSide
-                .blockSide.topSide                  
-                .blockSide.bottomSide
-                .blockHeader
-                  p group
-                  span.trash(class="glyphicon glyphicon-trash")
-                  form(role='form')
-                    label.radio-inline
-                      input(type="radio", value="|", name="divFormat")
-                      | ||
-                    label.radio-inline
-                      input(type="radio", value="-", name="divFormat",checked)
-                      | ==
-
-              li.block.draggable.header
-                .blockHeader
-                  p header
-                  span.trash(class="glyphicon glyphicon-trash")
-                  form: input(type='text',placeholder="I'm a header!")
-
-              li.block.draggable.paragraph
-                .blockHeader
-                  p paragraph
-                  span.trash(class="glyphicon glyphicon-trash")
-                  textarea.form-control(placeholder="I'm a paragraph!", rows=2)
-
-              li.block.draggable.image
-                .blockHeader
-                  p image
-                  span.trash(class="glyphicon glyphicon-trash")
-                  form: input(type='text',placeholder="paste a url here")
-
-              li.block.draggable.link
-                .blockHeader
-                  p link
-                  span.trash(class="glyphicon glyphicon-trash")
-                  form: input(type='text',placeholder="Name of link")
-                  form: input(type='text',placeholder="paste a url here")
-
-              li.block.draggable.button
-                .blockHeader
-                  p button
-                  span.trash(class="glyphicon glyphicon-trash")
-                  button.btn.btn-primary(type='button') Click Me
-
-              li.block.draggable.embed
-                .blockHeader
-                  p embed
-                  span.trash(class="glyphicon glyphicon-trash")
-                  form: input(type='text',placeholder="paste a url here")
+              include blocks
 
           #tabs-2.tab-pane
             ul.nav.nav-pills.nav-stacked

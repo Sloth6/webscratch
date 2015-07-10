@@ -1,0 +1,51 @@
+li.block.draggable.group
+  .blockSide.leftSide
+  .blockSide.topSide                  
+  .blockSide.bottomSide
+  .blockHeader
+    p group
+    span.trash(class="glyphicon glyphicon-trash")
+    form(role='form')
+      label.radio-inline
+        input(type="radio", value="|", name="divFormat")
+        | ||
+      label.radio-inline
+        input(type="radio", value="-", name="divFormat",checked)
+        | ==
+
+li.block.draggable.header
+  .blockHeader
+    p header
+    span.trash(class="glyphicon glyphicon-trash")
+    form: input(type='text',placeholder="I'm a header!")
+
+li.block.draggable.paragraph
+  .blockHeader
+    p paragraph
+    span.trash(class="glyphicon glyphicon-trash")
+    textarea.form-control(placeholder="I'm a paragraph!", rows=2)
+
+li.block.draggable.image
+  .blockHeader
+    p image
+    span.trash(class="glyphicon glyphicon-trash")
+    form: input(type='text',placeholder="paste a url here")
+
+li.block.draggable.link
+  .blockHeader
+    p link
+    span.trash(class="glyphicon glyphicon-trash")
+    form: input(type='text',placeholder="Name of link")
+    form: input(type='text',placeholder="paste a url here")
+
+li.block.draggable.button
+  .blockHeader
+    p button
+    span.trash(class="glyphicon glyphicon-trash")
+    button.btn.btn-primary(type='button') Click Me
+
+li.block.draggable.embed
+  .blockHeader
+    p embed
+    span.trash(class="glyphicon glyphicon-trash")
+    form: input(type='text',placeholder="paste a url here")
